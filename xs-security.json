@@ -1,0 +1,59 @@
+{
+  "xsappname": "project8",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin"
+    },
+    {
+      "name": "$XSAPPNAME.Student",
+      "description": "Student"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "admin role-template",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "Student",
+      "description": "student role-template",
+      "scope-references": [
+        "$XSAPPNAME.Student"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "Role-collection-Admin",
+      "description": "Admin Can Create,  Delete The Data",
+      "role-template-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "Role-collection-Student",
+      "description": "Student can Create, update, Delete The Data",
+      "role-template-references": [
+        "$XSAPPNAME.Student"
+      ]
+    }
+  ],
+  "attributes": []
+}
